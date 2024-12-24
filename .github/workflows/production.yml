@@ -1,0 +1,36 @@
+name: 🌟 Build & Deploy IAM Startpack
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: 🛠️ Building
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+      - run: npm ci
+      - run: npm run build
+
+  deploy:
+    name: 🚢 Deployment
+    runs-on: ubuntu-latest
+    steps:
+      uses: burnett01/rsync-deployments@7.0.1
+      with:
+        switches: >
+          -avz --delete
+          --include="dist/"
+          --include="index.html"
+          --exclude="*"
+        path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}
+        remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}
+        remote_host: ${{ secrets.PROD_REMOTE_HOST }}
+        remote_port: ${{ secrets.PROD_REMOTE_PORT }}
+        remote_user: ${{ secrets.PROD_REMOTE_USER }}
+        remote_key: ${{ secrets.PROD_SSH_REMOTE_KEY }}
+        remote_key_pass: ${{ secrets.PROD_SSH_REMOTE_KEY_PASS }}
