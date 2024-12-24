@@ -7,9 +7,9 @@ class Http {
 
   create(param) {
     return new Http({
-      baseUrl: param.baseUrl || this.baseUrl,
-      onSuccess: param.onSuccess || this.onSuccess,
-      onError: param.onError || this.onError,
+      baseUrl: param.baseUrl,
+      onSuccess: param.onSuccess,
+      onError: param.onError,
     });
   }
 

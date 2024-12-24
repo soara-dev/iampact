@@ -17,18 +17,24 @@
       const app = iam.create({
         baseUrl: "https://jsonplaceholder.typicode.com",
         onSuccess: (data) => {
-          console.log("ada data");
+          console.log(data);
         },
       });
 
       app.request({
         url: "/todos/",
         method: "GET",
+        onSuccess: (data) => {
+          console.log("wadi");
+        },
       });
 
       iam.request({
         url: "https://jsonplaceholder.typicode.com/todos/1",
         method: "GET",
+        onSuccess: (data) => {
+          console.log(data);
+        },
       });
     </script>
   </body>
