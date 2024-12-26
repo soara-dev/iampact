@@ -28,6 +28,9 @@ class Http {
       url: requestConfig.url,
       method: requestConfig.method,
       data: requestConfig.data,
+      contentType: false,
+      processData: false,
+      async: false,
       success: function (res) {
         requestConfig.onSuccess(res);
       },
