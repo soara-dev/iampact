@@ -5,8 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx webpack --config webpack.config.js",
-    "watch": "npx webpack --watch --config webpack.config.js"
+    "dev": "npx webpack --watch --config webpack.config.js",
+    "build": "npx webpack --mode production --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
