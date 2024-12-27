@@ -18,17 +18,29 @@ jobs:
           node-version: 20
           cache: "npm"
 
-      - name: Install dependencies
+      - name: Install lib dependencies
         run: npm ci
 
-      - name: Build the project
+      - name: Build lib project
         run: npm run build
 
-      - name: Upload dist as artifact
+      - name: Install doc dependencies
+        run: |
+          cd doc
+          npm ci
+
+      - name: Build doc project
+        run: |
+          cd doc
+          npm run build
+
+      - name: Upload app as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: ./dist
+          name: app
+          path: |
+            ./dist
+            ./doc/build
 
   deploy:
     name: 🚢 Deployment
@@ -41,15 +53,29 @@ jobs:
       - name: Download dist artifact
         uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: ./dist
+          name: app
+          path: |
+            ./dist
+            ./doc/build
 
-      - name: Deploy the project
+      - name: Deploy lib project
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
           path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}/dist
           remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}/dist
+          remote_host: ${{ secrets.PROD_REMOTE_HOST }}
+          remote_port: ${{ secrets.PROD_REMOTE_PORT }}
+          remote_user: ${{ secrets.PROD_REMOTE_USER }}
+          remote_key: ${{ secrets.PROD_SSH_REMOTE_KEY }}
+          remote_key_pass: ${{ secrets.PROD_SSH_REMOTE_KEY_PASS }}
+
+      - name: Deploy doc project
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete --exclude="/dist"
+          path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}/doc/build/
+          remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}
           remote_host: ${{ secrets.PROD_REMOTE_HOST }}
           remote_port: ${{ secrets.PROD_REMOTE_PORT }}
           remote_user: ${{ secrets.PROD_REMOTE_USER }}
