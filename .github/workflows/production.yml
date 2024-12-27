@@ -24,6 +24,12 @@ jobs:
       - name: Build lib project
         run: npm run build
 
+      - name: Upload dist as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: ./dist
+
       - name: Install doc dependencies
         run: |
           cd doc
@@ -34,13 +40,11 @@ jobs:
           cd doc
           npm run build
 
-      - name: Upload app as artifact
+      - name: Upload doc as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app
-          path: |
-            ./dist
-            ./doc/build
+          name: doc
+          path: ./doc/build
 
   deploy:
     name: 🚢 Deployment
@@ -53,10 +57,14 @@ jobs:
       - name: Download dist artifact
         uses: actions/download-artifact@v4
         with:
-          name: app
-          path: |
-            ./dist
-            ./doc/build
+          name: dist
+          path: ./dist
+
+      - name: Download doc artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ./doc/build
 
       - name: Deploy lib project
         uses: burnett01/rsync-deployments@7.0.1
