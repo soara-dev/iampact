@@ -2,7 +2,7 @@ name: 🌟 Docs IAM Startpack
 
 on:
   push:
-    branches: [doc]
+    branches: [feature/doc]
 
 jobs:
   build:
