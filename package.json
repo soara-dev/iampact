@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx webpack --watch --config webpack.config.js",
-    "build": "npx webpack --mode production --config webpack.config.js"
+    "build": "npx webpack --mode production --config webpack.config.js",
+    "install:all": "npm install && cd doc && npm install"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
   "devDependencies": {
     "webpack": "^5.97.1",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "all": "^0.0.0"
   }
 }
