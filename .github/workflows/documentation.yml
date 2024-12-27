@@ -28,34 +28,34 @@ jobs:
           cd doc
           npm run build
 
-      - name: Upload dist as artifact
+      - name: Upload build as artifact
         uses: actions/upload-artifact@v4
         with:
           name: build
           path: ./doc/build
 
-  # deploy:
-  #   name: 🚢 Deployment
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
+  deploy:
+    name: 🚢 Deployment
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-  #     - name: Download dist artifact
-  #       uses: actions/download-artifact@v4
-  #       with:
-  #         name: dist
-  #         path: ./dist
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: ./doc/build
 
-  #     - name: Deploy the project
-  #       uses: burnett01/rsync-deployments@7.0.1
-  #       with:
-  #         switches: -avzr --delete --exclude=".git" --exclude=".github" --exclude=".gitignore" --exclude="/feature" --exclude="/*.js" --exclude="/*.json" --exclude="/*.md"
-  #         path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}
-  #         remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}
-  #         remote_host: ${{ secrets.PROD_REMOTE_HOST }}
-  #         remote_port: ${{ secrets.PROD_REMOTE_PORT }}
-  #         remote_user: ${{ secrets.PROD_REMOTE_USER }}
-  #         remote_key: ${{ secrets.PROD_SSH_REMOTE_KEY }}
-  #         remote_key_pass: ${{ secrets.PROD_SSH_REMOTE_KEY_PASS }}
+      - name: Deploy the project
+        uses: burnett01/rsync-deployments@7.0.1
+        with:
+          switches: -avzr --delete --exclude="/dist"
+          path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}/doc/build
+          remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}
+          remote_host: ${{ secrets.PROD_REMOTE_HOST }}
+          remote_port: ${{ secrets.PROD_REMOTE_PORT }}
+          remote_user: ${{ secrets.PROD_REMOTE_USER }}
+          remote_key: ${{ secrets.PROD_SSH_REMOTE_KEY }}
+          remote_key_pass: ${{ secrets.PROD_SSH_REMOTE_KEY_PASS }}
