@@ -2,7 +2,7 @@ name: 🌟 Build & Deploy IAM Startpack
 
 on:
   push:
-    branches: [main]
+    branches: [doc]
 
 jobs:
   build:
@@ -47,7 +47,7 @@ jobs:
       - name: Deploy the project
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avzr --delete --exclude=".git" --exclude=".github" --exclude=".gitignore" --exclude="/feature" --exclude="/*.js" --exclude="/*.json" --exclude="/*.md"
+          switches: -avzr --delete --exclude=".git" --exclude=".github" --exclude=".gitignore" --exclude="/feature" --exclude="/*.{js,json,md,html}"
           path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}
           remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}
           remote_host: ${{ secrets.PROD_REMOTE_HOST }}
