@@ -63,7 +63,7 @@ jobs:
       - name: Download doc artifact
         uses: actions/download-artifact@v4
         with:
-          name: build
+          name: doc
           path: ./doc/build
 
       - name: Deploy lib project
