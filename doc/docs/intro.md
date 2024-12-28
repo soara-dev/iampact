@@ -18,5 +18,3 @@ sidebar_position: 1
 - [Laravel](https://laravel.com/)
 - [Jquery](https://jquery.com/)
 - [SweetAlert2](https://sweetalert2.github.io/)
-
-## Tes trigger docs update
