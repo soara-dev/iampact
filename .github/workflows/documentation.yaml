@@ -1,9 +1,9 @@
-name: 🌟 Build & Deploy IAM Startpack
+name: 📖 Documentation IAM Startpack
 
 on:
   push:
     branches: [feature/doc]
-    paths-ignore:
+    paths:
       - "doc/**"
 
 jobs:
@@ -20,17 +20,21 @@ jobs:
           node-version: 20
           cache: "npm"
 
-      - name: Install lib dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: |
+          cd doc
+          npm ci
 
-      - name: Build lib project
-        run: npm run build
+      - name: Build the documentation
+        run: |
+          cd doc
+          npm run build
 
-      - name: Upload dist as artifact
+      - name: Upload documentation as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: ./dist
+          name: doc
+          path: ./doc/build
 
   deploy:
     name: 🚢 Deployment
@@ -40,17 +44,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download dist artifact
+      - name: Download documentation artifact
         uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: ./dist
+          name: doc
+          path: ./doc/build
 
-      - name: Deploy lib project
+      - name: Deploy the documentation
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avzr --delete
-          path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}/dist
+          switches: -avzr --delete --exclude="/dist"
+          path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}/doc/build
           remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}
           remote_host: ${{ secrets.PROD_REMOTE_HOST }}
           remote_port: ${{ secrets.PROD_REMOTE_PORT }}
