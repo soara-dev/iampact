@@ -7,10 +7,24 @@ module.exports = (env, argv) => {
     output: {
       filename: "main.js",
       path: path.resolve(__dirname, "dist"),
+      publicPath: "/dist/",
     },
     devtool:
       argv.mode === "production"
         ? "source-map"
         : "eval-cheap-module-source-map",
+    devServer: {
+      static: [
+        {
+          directory: path.join(__dirname, "dist"),
+        },
+        {
+          directory: path.join(__dirname),
+          publicPath: "/",
+        },
+      ],
+      compress: true,
+      port: 5500,
+    },
   };
 };
