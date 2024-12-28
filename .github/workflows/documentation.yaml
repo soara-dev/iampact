@@ -53,9 +53,9 @@ jobs:
       - name: Deploy the documentation
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avzr --delete --exclude="/dist"
-          path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}/doc/build
-          remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}
+          switches: -avzr --delete
+          path: ${{ secrets.PROD_REMOTE_SOURCE_PATH }}/doc/build/
+          remote_path: ${{ secrets.PROD_REMOTE_ROOT_PATH }}/documentation
           remote_host: ${{ secrets.PROD_REMOTE_HOST }}
           remote_port: ${{ secrets.PROD_REMOTE_PORT }}
           remote_user: ${{ secrets.PROD_REMOTE_USER }}
