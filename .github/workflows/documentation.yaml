@@ -2,7 +2,7 @@ name: 📖 Documentation IAM Startpack
 
 on:
   push:
-    branches: [feature/doc]
+    branches: [main]
     paths:
       - "doc/**"
 

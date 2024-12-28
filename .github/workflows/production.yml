@@ -2,7 +2,7 @@ name: 🌟 Build & Deploy IAM Startpack
 
 on:
   push:
-    branches: [feature/doc]
+    branches: [main]
     paths-ignore:
       - "doc/**"
 
