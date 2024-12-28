@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx webpack --watch --config webpack.config.js",
+    "dev": "concurrently \"npm run dev:webpack\" \"npm run dev:doc\"",
+    "dev:webpack": "webpack serve --config webpack.config.js",
+    "dev:doc": "cd doc && npx docusaurus start",
     "build": "npx webpack --mode production --config webpack.config.js",
     "install:all": "npm install && cd doc && npm install"
   },
@@ -13,8 +15,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^9.1.1",
     "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
     "all": "^0.0.0"
