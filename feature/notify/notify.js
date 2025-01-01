@@ -34,7 +34,7 @@ class Notify {
     const { title: globalTitle, message, ...globalConfig } = this.global;
     const defaultTitle = globalTitle[status] || this.#ucFirst(status);
     const { title = defaultTitle, config } = param;
-    const text = param.message ?? message[status] ?? message;
+    const text = param.message ?? message[status] ?? "";
 
     const requestConfig = {
       ...globalConfig,

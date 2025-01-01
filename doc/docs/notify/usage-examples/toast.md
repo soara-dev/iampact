@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 sidebar_label: 'Toast'
 ---
 
@@ -9,7 +9,7 @@ Toast Notification adalah salah satu cara untuk menampilkan notifikasi yang munc
 
 ### Menampilkan Toast
 
-Untuk menampilkan toast, cukup panggil metode toast() dengan parameter jenis notifikasi, seperti `success`, `info`, `warning`, atau jenis lainnya, sesuai dengan pesan yang ingin ditampilkan.
+Untuk menampilkan toast, cukup panggil metode toast() dengan parameter jenis notifikasi, seperti `success`, `info`, `warning`, `error`, atau jenis lainnya, sesuai dengan pesan yang ingin ditampilkan.
 
 ```js
 notify.toast('success');

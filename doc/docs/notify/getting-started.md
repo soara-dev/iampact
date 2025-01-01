@@ -20,5 +20,5 @@ const { notify } = iam.utils;
 Notify dirancang agar sangat mudah digunakan, dengan pengaturan default untuk `title` dan `message` yang dapat langsung dipakai. Anda dapat menggunakan notifikasi dengan sangat ringkas tanpa perlu konfigurasi yang rumit. Namun, jika Anda membutuhkan pengaturan yang lebih spesifik, Notify menyediakan dua cara konfigurasi: secara `global` dan `lokal`.
 
 ```js
-notify.toast("success");
+notify.swal("success");
 ```

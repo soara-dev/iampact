@@ -1,5 +1,4 @@
 export const global = {
-  timer: 3000,
   title: {
     error: "",
     success: "",
@@ -14,6 +13,7 @@ export const global = {
 
 export const globalToast = {
   toast: true,
+  timer: 3000,
   position: "top-end",
   showConfirmButton: false,
   timerProgressBar: true,
