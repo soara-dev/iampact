@@ -10,9 +10,19 @@ class Notify {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  // prettier-ignore
+  #deepMerge(target, source) {
+    return Object.entries(source).reduce((acc, [key, value]) => {
+      acc[key] = value && typeof value === "object"
+        ? this.#deepMerge(acc[key] || {}, value)
+        : value;
+      return acc;
+    }, { ...target });
+  }
+
   config(config = {}, type = "") {
     const targetConfig = type ? `global${this.#ucFirst(type)}` : "global";
-    this[targetConfig] = { ...this[targetConfig], ...config };
+    this[targetConfig] = this.#deepMerge(this[targetConfig], config);
   }
 
   #buildConfig(param, status, type) {
