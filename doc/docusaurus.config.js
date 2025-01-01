@@ -3,7 +3,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 const config = {
   title: "IAM JS 🚀",
   tagline: "Ngoding Makin Simple tapi Powerful Gesss ",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.ico?v=1",
   url: "https://iam-starterpack.iamevent.my.id/",
   baseUrl: "/",
   organizationName: "facebook",
@@ -48,7 +48,7 @@ const config = {
       title: "Iampact",
       logo: {
         alt: "My Site Logo",
-        src: "img/logo.svg",
+        src: "img/logo.svg?v=1",
       },
       items: [
         {
