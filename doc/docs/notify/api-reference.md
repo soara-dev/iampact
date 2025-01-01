@@ -3,25 +3,120 @@ sidebar_position: 5
 sidebar_label: "API Reference"
 ---
 
-# Ringkasan
+# Referensi API
 
-### Apa itu Notify?
+Dokumentasi / Referensi API untuk modul Notify yang telah ditentukan.
 
-**Notify** adalah salah satu modul dari Iampact yang dirancang untuk menangani notifikasi atau pemberitahuan di aplikasi Anda. Dengan `Notify`, Anda dapat menampilkan pesan kepada pengguna dalam berbagai situasi, seperti saat proses berhasil, terjadi kesalahan, atau untuk meminta konfirmasi tindakan.
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Tipe</th>
+      <th>Deskripsi</th>
+      <th>Argumen</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><small>`swal`</small></td>
+      <td><small>`function`</small></td>
+      <td><small>Digunakan untuk memanggil notifikasi swal.</small></td>
+      <td><small>`params`, `status`</small></td>
+      <td><small>`-`</small></td>
+    </tr>
+    <tr>
+      <td><small>`toast`</small></td>
+      <td><small>`function`</small></td>
+      <td><small>Digunakan untuk memanggil notifikasi toast.</small></td>
+      <td><small>`params`, `status`</small></td>
+      <td><small>`-`</small></td>
+    </tr>
+    <tr>
+      <td><small>`confirm`</small></td>
+      <td><small>`function`</small></td>
+      <td><small>Digunakan untuk memanggil dialog confirm.</small></td>
+      <td><small>`params`</small></td>
+      <td><small>`-`</small></td>
+    </tr>
+    <tr>
+      <td><small>`config`</small></td>
+      <td><small>`function`</small></td>
+      <td><small>Digunakan untuk melakukan global config.</small></td>
+      <td><small>`params`</small></td>
+      <td><small>`{...}`</small></td>
+    </tr>
+    <tr>
+      <td><small>`toast.config`</small></td>
+      <td><small>`function`</small></td>
+      <td><small>Digunakan untuk melakukan spesifik global config toast.</small></td>
+      <td><small>`params`</small></td>
+      <td><small>`{...}`</small></td>
+    </tr>
+    <tr>
+      <td><small>`swal.config`</small></td>
+      <td><small>`function`</small></td>
+      <td><small>Digunakan untuk melakukan spesifik global config swal.</small></td>
+      <td><small>`params`</small></td>
+      <td><small>`{}`</small></td>
+    </tr>
+    <tr>
+      <td><small>`confirm.config`</small></td>
+      <td><small>`function`</small></td>
+      <td><small>Digunakan untuk melakukan spesifik global config confirm.</small></td>
+      <td><small>`params`</small></td>
+      <td><small>`{...}`</small></td>
+    </tr>
+  </tbody>
+</table>
 
-Komponen ini menggunakan library Swal **(SweetAlert)** sebagai basisnya, tetapi telah disederhanakan agar lebih mudah digunakan dan dapat disesuaikan dengan kebutuhan Anda. Tidak perlu lagi menulis kode notifikasi secara manual—cukup gunakan metode yang telah disediakan oleh `Notify`.
+:::warning
+Default global config dan spesifik global config bisa dilihat dibawah.
+:::
 
-### Keunggulan Notify
+### Default Global Config
 
-- **Sederhana**: API yang mudah dipahami, memungkinkan Anda menampilkan notifikasi hanya dengan satu baris kode.
-- **Seragam**: Semua notifikasi memiliki gaya dan tampilan yang konsisten di seluruh aplikasi.
-- **Kustomisasi Mudah**: Anda dapat menyesuaikan pesan, ikon, tombol, dan durasi notifikasi dengan mudah.
-- **Integrasi yang Baik**: Dapat digunakan bersama modul lain seperti Http, sehingga notifikasi otomatis muncul berdasarkan hasil AJAX.
+```js
+title: {
+    error: "",
+    success: "",
+    warning: "",
+},
+message: {
+    error: "Oops! Something went wrong",
+    success: "Action performed successfully",
+    warning: "This action needs attention",
+}
+```
 
-### Kapan Menggunakan Notify?
+### Default Spesifik Global Config Toast
 
-Notify sangat berguna dalam situasi berikut:
+```js
+toast: true,
+timer: 3000,
+position: "top-end",
+showConfirmButton: false,
+timerProgressBar: true,
+didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+}
+```
 
-- Menampilkan pesan sukses setelah data berhasil diproses.
-- Memberi tahu pengguna jika terjadi kesalahan (seperti gagal validasi).
-- Meminta konfirmasi dari pengguna sebelum tindakan penting, seperti menghapus data.
+### Default Spesifik Global Config Swal
+
+```js
+{}
+```
+
+### Default Spesifik Global Config Confirm
+
+```js
+title: "Are you sure?",
+text: "You won't be able to revert this!",
+icon: "warning",
+showCancelButton: true,
+confirmButtonColor: "#3085d6",
+cancelButtonColor: "#d33",
+confirmButtonText: "Yes, delete it!",
+```
