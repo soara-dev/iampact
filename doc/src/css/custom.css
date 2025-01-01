@@ -10,9 +10,12 @@
   --ifm-color-primary-lightest: #4987ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-code-font-size: 95%;
-  --ifm-font-size-base: 17px;
+  /* --ifm-font-size-base: 17px; */
   --ifm-line-height-base: 2;
   --ifm-container-width-xl: 1450px !important;
+  --ifm-heading-color: #0f172a;
+  --ifm-font-color-base: #0f172a;
+  --ifm-toc-border-color: #f1f2f2;
 }
 
 [data-theme="dark"] {
@@ -61,11 +64,11 @@ h6,
   padding-right: 24px;
   font-weight: 600;
 }
-.navbar .colorModeToggle_DEke {
+.navbar .toggler-color-mode {
   position: relative;
   margin-left: 24px;
 }
-.navbar .colorModeToggle_DEke::after {
+.navbar .toggler-color-mode::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -76,12 +79,33 @@ h6,
   background-color: #d7dfeb;
 }
 
+/* ---------- TABLE OF CONTENTS ---------- */
+.tableOfContents_bqdL {
+  padding-top: 40px;
+}
+.tableOfContents_bqdL::before {
+  content: "ON THIS PAGE";
+  font-family: "Inclusive Sans", serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ifm-heading-color);
+}
+.table-of-contents {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: 500;
+}
+@media (min-width: 1440px) {
+  .tableOfContents_bqdL {
+    margin-left: 2%;
+  }
+}
+
 /* --------------------------------------- */
 /* ---------- GLOBL WELCOME ONLY --------- */
 /* --------------------------------------- */
 
 #welcome {
-  --ifm-heading-color: #0f172a;
   height: 100dvh;
   background-color: var(--ifm-background-color);
 }
