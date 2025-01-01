@@ -1,30 +1,196 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Quicksand:wght@300..700&display=swap");
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-color-primary: #0056fc;
+  --ifm-color-primary-dark: #004de3;
+  --ifm-color-primary-darker: #0049d6;
+  --ifm-color-primary-darkest: #003cb0;
+  --ifm-color-primary-light: #1666ff;
+  --ifm-color-primary-lighter: #236eff;
+  --ifm-color-primary-lightest: #4987ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-code-font-size: 95%;
+
+  /* --ifm-font-size-base: 17px; */
+  --ifm-line-height-base: 2;
+  --ifm-container-width-xl: 1450px !important;
+  --ifm-footer-padding-vertical: 24px;
+
+  --ifm-font-color-base: #0f172a;
+  --ifm-heading-color: #0f172a;
+  --ifm-menu-color-background-hover: #f9f9fa;
+  --ifm-toc-border-color: #f1f2f2;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+[data-theme="dark"] {
+  --ifm-color-primary: #0056fc;
+  --ifm-color-primary-dark: #004de3;
+  --ifm-color-primary-darker: #0049d6;
+  --ifm-color-primary-darkest: #003cb0;
+  --ifm-color-primary-light: #1666ff;
+  --ifm-color-primary-lighter: #236eff;
+  --ifm-color-primary-lightest: #4987ff;
+  --ifm-button-color: #fff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-background-color: #161b22 !important;
+  --ifm-font-color-base: #fff;
+  --ifm-heading-color: #f2f3fb;
+  --ifm-heading-color: #fff;
+  --ifm-menu-color-background-hover: #090d13;
+  --ifm-navbar-background-color: #161b22;
+}
+
+/* --------------------------------------- */
+/* ----------- CUSTOMiZE GLOBAL ---------- */
+/* --------------------------------------- */
+* {
+  font-family: "Quicksand", serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar__title {
+  font-family: "Inclusive Sans", serif;
+}
+.container__more--space {
+  padding-bottom: 50px !important;
+  margin-bottom: 0 !important;
+}
+
+/* ---------------- NAVBAR --------------- */
+.navbar {
+  height: 70px;
+  box-shadow: none;
+  transition: box-shadow 0.2s;
+}
+.navbar.scrolled {
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+}
+.navbar__title {
+  font-size: 24px;
+}
+.navbar .navbar__item.navbar__link {
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 600;
+}
+.navbar .toggler-color-mode {
+  position: relative;
+  margin-left: 24px;
+}
+.navbar .toggler-color-mode::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 1px;
+  height: 24px;
+  transform: translateY(-50%);
+  background-color: #d7dfeb;
+}
+
+/* ---------------- SIEBAR --------------- */
+.theme-doc-sidebar-menu {
+  font-size: 15px;
+  font-weight: 400;
+}
+.menu__link {
+  padding: 8px 12px;
+}
+.menu__link,
+.menu__list-item-collapsible {
+  border-radius: 0;
+}
+.menu__link:hover,
+.menu__link--active:not(.menu__link--sublist),
+.menu__list-item-collapsible:hover,
+.menu__list-item-collapsible--active {
+  background-color: var(--ifm-menu-color-background-hover);
+}
+.menu__caret {
+  padding: 6px;
+}
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
+}
+.menu__link--active {
+  font-weight: 500;
+}
+
+/* ---------- TABLE OF CONTENTS ---------- */
+.table-of-contents-wrapper {
+  padding-top: 40px;
+}
+.table-of-contents-wrapper::before {
+  content: "ON THIS PAGE";
+  font-family: "Inclusive Sans", serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ifm-heading-color);
+}
+.table-of-contents {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: 500;
+}
+@media (min-width: 1440px) {
+  .table-of-contents-wrapper {
+    margin-left: 2%;
+  }
+}
+
+/* ---------------- FOOTER --------------- */
+.footer {
+  --ifm-footer-background-color: #fff;
+  --ifm-footer-color: var(--ifm-font-color-base);
+  font-family: "Inclusive Sans", serif;
+  font-size: 14px;
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+[data-theme="dark"] .footer {
+  --ifm-footer-background-color: #161b22 !important;
+}
+
+/* --------------------------------------- */
+/* ---------- GLOBL WELCOME ONLY --------- */
+/* --------------------------------------- */
+
+#welcome {
+  height: 100dvh;
+}
+
+/* ---------------- NAVBAR --------------- */
+#welcome .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+}
+
+/* ----------- TAGLINE HEADLINE ---------- */
+.tagline__headline-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.tagline__headline {
+  text-align: center;
+}
+.tagline__headline--title {
+  font-size: 70px;
+  margin-bottom: 24px;
+}
+.tagline__headline--desc {
+  max-width: 800px;
+  color: #747e8e !important;
+  line-height: 32px;
+  font-weight: 500;
+  margin-bottom: 32px;
 }
