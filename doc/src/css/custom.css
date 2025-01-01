@@ -10,11 +10,15 @@
   --ifm-color-primary-lightest: #4987ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-code-font-size: 95%;
+
   /* --ifm-font-size-base: 17px; */
   --ifm-line-height-base: 2;
   --ifm-container-width-xl: 1450px !important;
-  --ifm-heading-color: #0f172a;
+  --ifm-footer-padding-vertical: 24px;
+
   --ifm-font-color-base: #0f172a;
+  --ifm-heading-color: #0f172a;
+  --ifm-menu-color-background-hover: #f9f9fa;
   --ifm-toc-border-color: #f1f2f2;
 }
 
@@ -28,6 +32,13 @@
   --ifm-color-primary-lightest: #4987ff;
   --ifm-button-color: #fff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-background-color: #161b22 !important;
+  --ifm-font-color-base: #fff;
+  --ifm-heading-color: #f2f3fb;
+  --ifm-heading-color: #fff;
+  --ifm-menu-color-background-hover: #090d13;
+  --ifm-navbar-background-color: #161b22;
 }
 
 /* --------------------------------------- */
@@ -36,7 +47,6 @@
 * {
   font-family: "Quicksand", serif;
 }
-
 h1,
 h2,
 h3,
@@ -45,6 +55,9 @@ h5,
 h6,
 .navbar__title {
   font-family: "Inclusive Sans", serif;
+}
+.docMainContainer_TBSr .container {
+  padding-bottom: 50px !important;
 }
 
 /* ---------------- NAVBAR --------------- */
@@ -79,6 +92,34 @@ h6,
   background-color: #d7dfeb;
 }
 
+/* ---------------- SIEBAR --------------- */
+.theme-doc-sidebar-menu {
+  font-size: 15px;
+  font-weight: 400;
+}
+.menu__link {
+  padding: 8px 12px;
+}
+.menu__link,
+.menu__list-item-collapsible {
+  border-radius: 0;
+}
+.menu__link:hover,
+.menu__link--active:not(.menu__link--sublist),
+.menu__list-item-collapsible:hover,
+.menu__list-item-collapsible--active {
+  background-color: var(--ifm-menu-color-background-hover);
+}
+.menu__caret {
+  padding: 6px;
+}
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
+}
+.menu__link--active {
+  font-weight: 500;
+}
+
 /* ---------- TABLE OF CONTENTS ---------- */
 .table-of-contents-wrapper {
   padding-top: 40px;
@@ -101,19 +142,24 @@ h6,
   }
 }
 
+/* ---------------- FOOTER --------------- */
+.footer {
+  --ifm-footer-background-color: #fff;
+  --ifm-footer-color: var(--ifm-font-color-base);
+  font-family: "Inclusive Sans", serif;
+  font-size: 14px;
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+[data-theme="dark"] .footer {
+  --ifm-footer-background-color: #161b22 !important;
+}
+
 /* --------------------------------------- */
 /* ---------- GLOBL WELCOME ONLY --------- */
 /* --------------------------------------- */
 
 #welcome {
   height: 100dvh;
-  background-color: var(--ifm-background-color);
-}
-[data-theme="dark"] #welcome {
-  --ifm-navbar-background-color: #161b22;
-  --ifm-heading-color: #f2f3fb;
-  --ifm-background-color: #161b22;
-  --ifm-heading-color: #fff;
 }
 
 /* ---------------- NAVBAR --------------- */
@@ -146,36 +192,4 @@ h6,
   line-height: 32px;
   font-weight: 500;
   margin-bottom: 32px;
-}
-
-.theme-doc-sidebar-menu {
-  font-size: 15px;
-  font-weight: 400;
-}
-.menu__link {
-  padding: 8px 12px;
-}
-
-.menu__link,
-.menu__list-item-collapsible {
-  border-radius: 0;
-}
-
-.menu__link:hover,
-.menu__link--active:not(.menu__link--sublist),
-.menu__list-item-collapsible:hover,
-.menu__list-item-collapsible--active {
-  --ifm-menu-color-background-hover: #f9f9fa;
-  background-color: var(--ifm-menu-color-background-hover);
-}
-
-.menu__caret {
-  padding: 6px;
-}
-.menu__caret:before {
-  background: var(--ifm-menu-link-sublist-icon) 50% / 1rem 1rem;
-}
-
-.menu__link--active {
-  font-weight: 500;
 }
