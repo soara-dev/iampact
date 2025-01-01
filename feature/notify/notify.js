@@ -16,9 +16,14 @@ class Notify {
   }
 
   #buildConfig(param, status, type) {
-    const defaultTitle = this.#ucFirst(status);
+    if (typeof param === "string") {
+      status = param;
+      param = {};
+    }
+
+    const { title: globalTitle, message, ...globalConfig } = this.global;
+    const defaultTitle = globalTitle[status] || this.#ucFirst(status);
     const { title = defaultTitle, config } = param;
-    const { message, ...globalConfig } = this.global;
     const text = param.message ?? message[status] ?? message;
 
     const requestConfig = {
@@ -27,18 +32,20 @@ class Notify {
       ...config,
     };
 
-    return { title, text, config: requestConfig };
+    return { title, text, config: requestConfig, status };
   }
 
   toast(param, status) {
-    const { title, text, config } = this.#buildConfig(param, status, "toast");
+    // prettier-ignore
+    const { title, text, config, status: newStatus } = this.#buildConfig(param, status, "toast");
     const Toast = Swal.mixin(config);
-    Toast.fire({ title, text, icon: status });
+    Toast.fire({ title, text, icon: newStatus });
   }
 
   swal(param, status) {
-    const { title, text, config } = this.#buildConfig(param, status, "swal");
-    Swal.fire({ title, text, icon: status, ...config });
+    // prettier-ignore
+    const { title, text, config, status: newStatus } = this.#buildConfig(param, status, "swal");
+    Swal.fire({ title, text, icon: newStatus, ...config });
   }
 
   confirm(param) {

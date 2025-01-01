@@ -1,5 +1,10 @@
 export const global = {
   timer: 3000,
+  title: {
+    error: "",
+    success: "",
+    warning: "",
+  },
   message: {
     error: "Oops! Something went wrong",
     success: "Action performed successfully",
