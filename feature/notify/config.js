@@ -1,5 +1,9 @@
 export const global = {
-  timer: 3000,
+  title: {
+    error: "",
+    success: "",
+    warning: "",
+  },
   message: {
     error: "Oops! Something went wrong",
     success: "Action performed successfully",
@@ -9,6 +13,7 @@ export const global = {
 
 export const globalToast = {
   toast: true,
+  timer: 3000,
   position: "top-end",
   showConfirmButton: false,
   timerProgressBar: true,
