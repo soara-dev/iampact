@@ -56,8 +56,9 @@ h6,
 .navbar__title {
   font-family: "Inclusive Sans", serif;
 }
-.docMainContainer_TBSr .container {
+.container__more--space {
   padding-bottom: 50px !important;
+  margin-bottom: 0 !important;
 }
 
 /* ---------------- NAVBAR --------------- */
