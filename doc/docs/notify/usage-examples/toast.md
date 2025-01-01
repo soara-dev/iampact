@@ -65,5 +65,5 @@ notify.toast.config({
 ```
 
 :::info
-Dengan menggunakan konfigurasi global seperti contoh di atas, setiap pemanggilan `toast` yang tidak dikonfigurasi ulang saat pemanggilan (misalnya: `notify.toast('success')`) akan menampilkan **title** "Berhasil Pak!", karena sudah diset di konfigurasi global untuk toast. Untuk penjelasan lebih lanjut mengenai konfigurasi global, cek lebih detail di [Global Config](global-config).
+Dengan menggunakan konfigurasi global seperti contoh di atas, setiap pemanggilan `toast` yang tidak dikonfigurasi ulang saat pemanggilan (misalnya: `notify.toast('success')`) akan menampilkan **title** "Berhasil Pak!", karena sudah diset di konfigurasi global untuk toast. Untuk penjelasan lebih lanjut mengenai konfigurasi global, cek lebih detail di [Customization](../customization).
 :::

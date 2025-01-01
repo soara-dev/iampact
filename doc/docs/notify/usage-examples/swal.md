@@ -63,5 +63,5 @@ notify.swal.config({
 ```
 
 :::info
-Dengan menggunakan konfigurasi global seperti contoh di atas, setiap pemanggilan `swal` yang tidak dikonfigurasi ulang saat pemanggilan (misalnya: `notify.swal('success')`) tidak akan menampilkan **tombol konfirmasi**, karena sudah diset di konfigurasi global untuk swal. Untuk penjelasan lebih lanjut mengenai konfigurasi global, cek lebih detail di [Global Config](global-config).
+Dengan menggunakan konfigurasi global seperti contoh di atas, setiap pemanggilan `swal` yang tidak dikonfigurasi ulang saat pemanggilan (misalnya: `notify.swal('success')`) tidak akan menampilkan **tombol konfirmasi**, karena sudah diset di konfigurasi global untuk swal. Untuk penjelasan lebih lanjut mengenai konfigurasi global, cek lebih detail di [Customization](../customization).
 :::

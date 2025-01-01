@@ -59,8 +59,10 @@ class Notify {
   }
 
   confirm(param) {
+    // prettier-ignore
+    const { title, text, config } = this.#buildConfig(param, '', "confirm");
     return new Promise((resolve) => {
-      Swal.fire({ ...this.globalConfirm, ...param }).then((result) => {
+      Swal.fire({ title, text, ...config }).then((result) => {
         resolve(result.isConfirmed);
       });
     });
@@ -73,5 +75,6 @@ const notifyInstance = new Notify();
 const configure = (type) => (config = {}) => { notifyInstance.config(config, type) };
 notifyInstance.toast.config = configure("toast");
 notifyInstance.swal.config = configure("swal");
+notifyInstance.confirm.config = configure("confirm");
 
 export default notifyInstance;
