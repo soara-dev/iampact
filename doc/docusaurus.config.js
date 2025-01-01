@@ -1,7 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config = {
-  title: "IAM JS 🚀",
+  title: "Iampact",
   tagline: "Ngoding Makin Simple tapi Powerful Gesss ",
   favicon: "img/favicon.ico?v=1",
   url: "https://iam-starterpack.iamevent.my.id/",

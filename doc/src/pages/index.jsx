@@ -14,7 +14,7 @@ export default function Home() {
     <Layout
       noNavbar
       noFooter
-      title={`Hello from ${siteConfig.title}`}
+      title={`${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
       <main>
