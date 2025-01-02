@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Quicksand:wght@300..700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Quicksand:wght@300..700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inclusive+Sans:ital@0;1&family=Quicksand:wght@300..700&display=swap");
 
 :root {
   --ifm-color-primary: #0056fc;
@@ -200,4 +201,9 @@ h6,
   line-height: 32px;
   font-weight: 500;
   margin-bottom: 32px;
+}
+
+.customize-code-block * {
+  font-family: "Fira Code", serif !important;
+  line-height: 1.7;
 }

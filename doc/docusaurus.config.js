@@ -21,8 +21,6 @@ const config = {
         docs: {
           sidebarPath: "./sidebars.js",
           breadcrumbs: false,
-          editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -62,7 +60,7 @@ const config = {
       copyright: `Copyright © ${new Date().getFullYear()} Iampact.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
     },
   },
