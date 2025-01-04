@@ -14,18 +14,29 @@ export default function Home() {
           <Navbar />
           <div className="tagline__headline-wrapper">
             <div className="tagline__headline">
-              <h1 className="tagline__headline--title">Welcome to Iampact</h1>
+              <h1 className="tagline__headline--title">
+                Upgrade Your Code <br /> With <span>Iampact</span>
+              </h1>
               <p className="tagline__headline--desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi,
-                aliquid praesentium numquam aperiam ipsum qui enim nobis in
-                maiores, possimus cumque.
+                Transform your development process with cutting-edge tools and
+                techniques. Enhance your code quality, increase efficiency, and
+                create solutions that make a difference.
               </p>
-              <Link
-                className="button button--primary button--lg"
-                to="/docs/intro"
-              >
-                Get Started
-              </Link>
+              <div className="actions-wrapper">
+                <Link
+                  className="button button--primary button--lg custom-button"
+                  to="/docs/intro"
+                >
+                  GET STARTED
+                </Link>
+                <a
+                  href="https://saweria.co/iampact"
+                  className="button button-white button--lg custom-button"
+                  target="_blank"
+                >
+                  SUPPORT US
+                </a>
+              </div>
             </div>
           </div>
         </div>
