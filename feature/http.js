@@ -5,6 +5,8 @@ class Http {
     this.onError = config.onError || (() => {});
     this.onBeforeSend = config.onBeforeSend || (() => {});
     this.onComplete = config.onComplete || (() => {});
+    this.withReload = config.withReload || false;
+    this.redirectTo = config.redirectTo || "";
   }
 
   create(param) {
@@ -14,12 +16,23 @@ class Http {
       onError: param.onError,
       onBeforeSend: param.onBeforeSend,
       onComplete: param.onComplete,
+      withReload: param.withReload,
+      redirectTo: param.redirectTo,
     });
   }
 
   request(param) {
-    const { url, method, data, onSuccess, onError, onBeforeSend, onComplete } =
-      param;
+    const {
+      url,
+      method,
+      data,
+      onSuccess,
+      onError,
+      onBeforeSend,
+      onComplete,
+      withReload,
+      redirectTo,
+    } = param;
 
     const requestConfig = {
       url: this.baseUrl ? this.baseUrl + url : url,
@@ -29,9 +42,12 @@ class Http {
       onSuccess: onSuccess || this.onSuccess || (() => {}),
       onError: onError || this.onError || (() => {}),
       onComplete: onComplete || this.onComplete || (() => {}),
+      withReload: withReload || this.withReload,
+      redirectTo: redirectTo || this.redirectTo,
     };
 
-    return $.ajax({
+    const isFormData = data instanceof FormData;
+    const ajaxConfig = {
       url: requestConfig.url,
       method: requestConfig.method,
       data: requestConfig.data,
@@ -43,6 +59,15 @@ class Http {
       },
       success: function (res) {
         requestConfig.onSuccess(res);
+        if (requestConfig.withReload) {
+          window.location.href = requestConfig.redirectTo;
+          return;
+        }
+
+        if (requestConfig.redirectTo) {
+          window.location.href = requestConfig.redirectTo;
+          return;
+        }
       },
       error: function (err) {
         requestConfig.onError(err);
@@ -50,7 +75,14 @@ class Http {
       complete: function () {
         requestConfig.onComplete();
       },
-    });
+    };
+
+    if (!isFormData) {
+      delete ajaxConfig.contentType;
+      delete ajaxConfig.processData;
+    }
+
+    return $.ajax(ajaxConfig);
   }
 }
 
