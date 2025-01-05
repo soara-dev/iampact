@@ -8,7 +8,7 @@ sidebar_label: 'Unsafe Methods'
 Pada saat melakukan request ke server, kita ingin melakukan manipulasi data di server. Method Unsafe diantaranya adalah `'POST'`, `'PUT'`, `'PATCH'`, dan `'DELETE'`. Method ini mengubah data di server, sehingga disebut sebagai **unsafe methods**. 
 
 ### Melakukan Request
-Untuk melakukan request, Anda dapat menggunakan cara dibawah ini dengan beberapa parameter yang telah di sediakan yang dapat di lihat pada [referensi http](../http-api.md)
+Untuk melakukan request, Anda dapat menggunakan cara dibawah ini dengan beberapa parameter yang telah di sediakan yang dapat di lihat pada [referensi http](../api-reference.md)
 ```js
 request({
     method: "POST",
