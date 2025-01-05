@@ -1,0 +1,95 @@
+---
+sidebar_position: 3
+sidebar_label: "Validation"
+---
+
+# Validasi
+
+Menampilkan validasi dari server merupakan hal yang penting dalam pengembangan aplikasi. Validasi ini dapat digunakan untuk memberikan feedback kepada pengguna terkait data yang diinputkan. Pada umumnya, validasi dilakukan pada saat melakukan request ke server. Berikut adalah contoh validasi yang dapat dilakukan pada saat melakukan request.
+
+### Inisialisasi
+
+Sebelum melakukan request, pastikan anda telah menginisialisasi iampack pada aplikasi anda. Berikut adalah contoh penggunaan iampack pada aplikasi anda.
+
+```js
+const { validate } = iam.utils;
+```
+
+### Menampilkan Pesan Error
+
+Pada iampack anda dapat langsung menampilkan pesan error yang diberikan oleh server secara otomatis pada inputan yang di validasi. Berikut adalah contoh penggunaan validasi pada saat melakukan request. fungsi `validate` akan menampilkan pesan error pada inputan yang di validasi dengan default class `is-invalid`. dan pesan error akan di tampilkan pada element dengan class `invalid-feedback`.
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+<Tabs>
+  <TabItem value="html" label="HTML" default>
+    ```html
+    <form id="form">
+        <input type="text" name="name" validate="name">
+        <input type="text" name="age" validate="age">
+        <button type="submit">Submit</button>
+    </form>
+    ```
+  </TabItem>
+  <TabItem value="javascript" label="JS">
+    ```js
+    $("#form").on('submit',function(e){
+        e.preventDefault();
+        request({
+            url: "https://jsonplaceholder.typicode.com/posts",
+            data: $(this).serialize(),
+            onError: function(err) {
+                validate(err.responseJSON);
+            }
+        })
+    })
+    ```
+  </TabItem>
+  <TabItem value="response" label="Response Error">
+    ```json
+    {
+        "message": "The name field is required.",
+        "errors": {
+            "name": [
+                "The name field is required."
+            ],
+            "age": [
+                "The age field is required."
+            ]
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+:::warning
+Pesan error yang dihasilkan oleh server harus mengikuti format yang telah ditentukan oleh iampack. berikan status code `422` pada saat melakukan validas serta attribute validate disamakan dengan name dari inputan yang di validasi.
+:::
+
+### Integrasi Library Lain
+
+Pada saat pengembangan aplikasi, kita sering kali menggunakan library pihak ketiga untuk melakukan custom inputan seperti datepicker, select2, dll. Berikut adalah contoh penggunaan validasi pada saat menggunakan library pihak ketiga.
+
+```html
+<form id="form">
+  <div validate="file">
+    <input type="file" name="file" class="filepond" />
+  </div>
+  <div validate="category">
+    <select name="category" class="select2"></select>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+```
+
+Anda dapat menambahkan attribute `validate` pada parent element dari inputan yang di validasi. Dengan begitu, pesan error akan ditampilkan pada parent element tersebut.
+:::warning
+Tambahkan custom css pada parent element untuk menampilkan pesan error pada inputan yang di validasi.
+:::
+
+```css
+.is-invalid .select2-container {
+  /** Untuk menambahkan border merah pada select2 */
+  border-color: #dc3545 !important`;
+}
+```

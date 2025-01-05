@@ -1,10 +1,11 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
+sidebar_label: "API Reference"
 ---
 
-# Http Api
+# Referensi API
 
-Digunakan untuk membuat instance baru dari kelas `Http` dengan konfigurasi yang telah ditentukan.
+Dokumentasi / Referensi API untuk modul Notify yang telah ditentukan.
 
 <table>
   <thead>
@@ -57,6 +58,12 @@ Digunakan untuk membuat instance baru dari kelas `Http` dengan konfigurasi yang 
       <td><small><code>'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'</code></small></td>
       <td><small>Metode permintaan yang akan digunakan.</small></td>
       <td><small><code>'GET'</code></small></td>
+    </tr>
+    <tr>
+     <td><small><code>withReload</code></small></td>
+      <td><small><code>bool</code></small></td>
+      <td><small>Melakukan reload saat request statusnya berhasil</small></td>
+      <td><small><code>null</code></small></td>
     </tr>
   </tbody>
 </table>
