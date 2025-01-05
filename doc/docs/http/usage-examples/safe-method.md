@@ -8,7 +8,7 @@ sidebar_label: 'Safe Methods'
 Pada saat melakukan request ke server, kita hanya menginginkan data yang diperlukan tanpa ada manipulasi data. Method Safe diantaranya adalah `'GET'`, `'HEAD'`, `'OPTIONS'`, dan `'TRACE'`. Method ini tidak mengubah data di server, sehingga disebut sebagai **safe methods**.
 
 ### Melakukan Request
-Untuk melakukan request, Anda dapat menggunakan cara dibawah ini dengan beberapa parameter yang telah di sediakan yang dapat di lihat pada [referensi http](../http-api.md)
+Untuk melakukan request, Anda dapat menggunakan cara dibawah ini dengan beberapa parameter yang telah di sediakan yang dapat di lihat pada [referensi http](../api-reference.md)
 ```js
 request({
     method: "GET",
