@@ -1,3 +1,5 @@
+import { clearValidate } from "./validate";
+
 class Http {
   constructor(config = {}) {
     this.baseUrl = config.baseUrl || "";
@@ -58,6 +60,7 @@ class Http {
         requestConfig.onBeforeSend(xhr);
       },
       success: function (res) {
+        clearValidate();
         requestConfig.onSuccess(res);
         if (requestConfig.withReload) {
           window.location.href = requestConfig.redirectTo;
