@@ -7,8 +7,8 @@ sidebar_label: "Customization"
 Pada bagian kustomisasi ini, anda dapat mengatur konfigurasi global pada lifecycle hooks yang akan dijalankan pada setiap request yang dilakukan. Berikut adalah contoh penggunaan konfigurasi global pada lifecycle hooks.
 
 ```js
-const { create } = iam.http; 
-const { validate, notify }  = iam.utils;
+const { create, validate } = iam.http; 
+const {  notify }  = iam.utils;
 
 const http = create({
     baseUrl: "https://jsonplaceholder.typicode.com",
