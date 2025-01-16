@@ -4,11 +4,13 @@ import { validate } from "./feature/validate";
 import datatables from "./feature/datatables";
 
 const iam = {
-  create: httpInstance.create,
-  request: httpInstance.request,
+  http: {
+    create: httpInstance.create,
+    request: httpInstance.request,
+    validate,
+  },
   utils: {
     notify,
-    validate,
     datatables,
   },
 };

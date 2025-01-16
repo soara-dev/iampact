@@ -7,18 +7,20 @@ sidebar_label: "Customization"
 Pada bagian kustomisasi ini, anda dapat mengatur konfigurasi global pada lifecycle hooks yang akan dijalankan pada setiap request yang dilakukan. Berikut adalah contoh penggunaan konfigurasi global pada lifecycle hooks.
 
 ```js
-const { create } = iam.http; 
-const { validate, notify }  = iam.utils;
-
-const http = create({
-    baseUrl: "https://jsonplaceholder.typicode.com",
-    onSuccess: function (res) {
-        notify.success("Success", res.message); // Menampilkan notifikasi sukses
+const { notify } = iam.utils;
+const { http, validate } = iam.http;
+const http = http.create({
+    onSuccess: function(res) {
+        notify.toast({
+            message: res.message
+        }, 'success');
     },
-    onError: function (err) {
+    onError: function(err) {
         const res = err.responseJSON;
-        notify.error("Error", res.message); // Menampilkan notifikasi error
-        validate(res.errors); // Menampilkan pesan error pada inputan yang di validasi
+        if (err.status === 422) {
+            notify.toast({ message: res.message }, 'error');
+            validate(res); // Menampilkan pesan error pada inputan yang di validasi
+        }
     }
 })
 ```

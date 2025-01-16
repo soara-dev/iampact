@@ -65,5 +65,11 @@ Dokumentasi / Referensi API untuk modul Notify yang telah ditentukan.
       <td><small>Melakukan reload saat request statusnya berhasil</small></td>
       <td><small><code>null</code></small></td>
     </tr>
+     <tr>
+     <td><small><code>redirectTo</code></small></td>
+      <td><small><code>string</code></small></td>
+      <td><small>Melakukan redirect saat request statusnya berhasil</small></td>
+      <td><small><code>null</code></small></td>
+    </tr>
   </tbody>
 </table>
