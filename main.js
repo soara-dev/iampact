@@ -1,7 +1,7 @@
-import httpInstance from "./feature/http";
+import httpInstance from "./feature/http/http";
 import notify from "./feature/notify/notify";
-import { validate } from "./feature/validate";
-import datatables from "./feature/datatables";
+import validate from "./feature/http/validate";
+import datatables from "./feature/datatables/datatables";
 
 const iam = {
   http: {
@@ -9,10 +9,10 @@ const iam = {
     request: httpInstance.request,
     validate,
   },
-  utils: {
-    notify,
-    datatables,
-  },
+  datatables,
+  notify,
+  // utils: {
+  // },
 };
 
 window.iam = iam;
