@@ -1,6 +1,7 @@
 import httpInstance from "./feature/http";
 import notify from "./feature/notify/notify";
 import { validate } from "./feature/validate";
+import datatables from "./feature/datatables";
 
 const iam = {
   create: httpInstance.create,
@@ -8,6 +9,7 @@ const iam = {
   utils: {
     notify,
     validate,
+    datatables,
   },
 };
 
