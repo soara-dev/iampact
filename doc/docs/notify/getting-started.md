@@ -12,7 +12,7 @@ Untuk mulai menggunakan **Notify** di aplikasi Anda, ikuti langkah-langkah seder
 Pastikan Anda sudah mengintegrasikan **Iampact** ke dalam proyek Anda. Jika belum, Anda bisa memulai dengan mengunduh atau menginstal Iampact.
 
 ```js
-const { notify } = iam.utils;
+const { notify } = iampact;
 ```
 
 ### Contoh Penggunaan

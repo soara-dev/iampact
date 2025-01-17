@@ -10,7 +10,7 @@ sidebar_label: "Getting Started"
 Pastikan Anda sudah mengintegrasikan **Iampact** ke dalam proyek Anda. Jika belum, Anda bisa memulai dengan mengunduh atau menginstal Iampact.
 
 ```js
-const { request } = iam.http
+const { request } = iampact.http
 ```
 
 ### Contoh Penggunaan
