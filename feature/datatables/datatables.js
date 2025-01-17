@@ -76,7 +76,7 @@ class Datatables {
   }
 
   #loadExport(param) {
-    const { el, title, columns } = param;
+    const { el, title, columns = ":visible", except = [] } = param;
 
     const dataExtends = {
       copy: "copyHtml5",
@@ -86,6 +86,12 @@ class Datatables {
       print: "print",
     };
 
+    const filteredColumns = except
+      ? this.columns
+          .map((_, index) => index)
+          .filter((_, index) => !except.includes(index))
+      : columns;
+
     const dataButtons = $(`${el} [data-export]`)
       .map((_, e) => {
         const dataExport = $(e).data("export");
@@ -94,7 +100,7 @@ class Datatables {
           extend: dataExtends[dataExport],
           action: this.#handleExportAction,
           exportOptions: {
-            columns: columns,
+            columns: filteredColumns,
           },
           ...param[dataExport],
         };

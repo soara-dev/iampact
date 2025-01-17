@@ -106,6 +106,24 @@ h6,
 .menu__link {
   padding: 8px 12px;
 }
+.theme-code-block-highlighted-line {
+  background-color: #ffffff1a !important;
+}
+.theme-doc-sidebar-menu.menu__list
+  > .theme-doc-sidebar-item-category
+  > .menu__list-item-collapsible
+  > .menu__link.menu__link--sublist {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.theme-doc-sidebar-menu.menu__list
+  > .theme-doc-sidebar-item-category
+  > .menu__list-item-collapsible
+  > .menu__link.menu__link--sublist::before {
+  content: "#";
+  margin-right: 8px;
+  color: var(--ifm-color-primary);
+}
 .menu__link,
 .menu__list-item-collapsible {
   border-radius: 0;
