@@ -1,3 +1,5 @@
+import deepMerge from "../../helpers/deepMerge";
+
 class Datatables {
   constructor(config = {}) {
     this.instance = null;
@@ -95,15 +97,15 @@ class Datatables {
     const dataButtons = $(`${el} [data-export]`)
       .map((_, e) => {
         const dataExport = $(e).data("export");
-        return {
+        const baseConfig = {
           title: title,
           extend: dataExtends[dataExport],
           action: this.#handleExportAction,
           exportOptions: {
             columns: filteredColumns,
           },
-          ...param[dataExport],
         };
+        return deepMerge(baseConfig, param[dataExport] || {});
       })
       .get();
 
