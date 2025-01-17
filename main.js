@@ -3,7 +3,7 @@ import notify from "./feature/notify/notify";
 import validate from "./feature/http/validate";
 import datatables from "./feature/datatables/datatables";
 
-const iam = {
+const iampact = {
   http: {
     create: httpInstance.create,
     request: httpInstance.request,
@@ -11,8 +11,6 @@ const iam = {
   },
   datatables,
   notify,
-  // utils: {
-  // },
 };
 
-window.iam = iam;
+window.iampact = iampact;
