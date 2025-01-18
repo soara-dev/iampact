@@ -4,12 +4,13 @@ sidebar_label: "Customization"
 ---
 
 # Kustomisasi
-Pada bagian kustomisasi ini, anda dapat mengatur konfigurasi global pada lifecycle hooks yang akan dijalankan pada setiap request yang dilakukan. Berikut adalah contoh penggunaan konfigurasi global pada lifecycle hooks.
+
+Pada bagian ini, Anda dapat mengatur konfigurasi **global** pada lifecycle hooks yang akan dijalankan untuk setiap permintaan (request) yang dilakukan. Berikut adalah contoh penggunaan konfigurasi **global** pada lifecycle hooks:
 
 ```js
-const { notify } = iam.utils;
-const { http, validate } = iam.http;
-const http = http.create({
+const { http, notify } = iampact;
+
+const app = http.create({
     onSuccess: function(res) {
         notify.toast({
             message: res.message
@@ -19,16 +20,16 @@ const http = http.create({
         const res = err.responseJSON;
         if (err.status === 422) {
             notify.toast({ message: res.message }, 'error');
-            validate(res); // Menampilkan pesan error pada inputan yang di validasi
+            http.validate(res); // Menampilkan pesan error pada inputan yang di validasi
         }
     }
 })
 ```
 
-Jika telah dilakukan konfigurasi **global** pada http, anda dapat memanggil http pada setiap request yang dilakukan. Berikut adalah contoh penggunaan http pada saat melakukan request.
+Setelah melakukan konfigurasi **global** pada `http`, Anda dapat menggunakan instance `http` yang telah dikustomisasi ini setiap kali melakukan permintaan. Berikut adalah contoh penggunaan instance tersebut:
 
 ```js
-http.request({
+app.request({
     method: "POST",
     url: "/posts",
     onSuccess: function (res) {
@@ -38,5 +39,5 @@ http.request({
 ```
 
 :::warning
-Jika telah melakukan konfigurasi **global** pada lifecycle hooks dan melakukan konfigurasi **local** pada lifecycle hooks, maka konfigurasi **local** akan melakukan **override** pada konfigurasi **global**.
+Jika Anda telah mengatur konfigurasi **global** pada lifecycle hooks, tetapi juga mengatur konfigurasi **lokal** pada lifecycle hooks saat membuat permintaan, maka konfigurasi **lokal** akan **menggantikan** (override) konfigurasi **global**.
 :::
