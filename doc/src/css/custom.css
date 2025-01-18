@@ -64,6 +64,11 @@ h6,
   margin-bottom: 0 !important;
 }
 
+/* ------------- DOCS LAYOUT ------------- */
+.iampact-main-doc {
+  flex-direction: column;
+}
+
 /* ---------------- NAVBAR --------------- */
 .navbar {
   box-shadow: none;

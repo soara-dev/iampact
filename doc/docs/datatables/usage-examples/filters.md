@@ -27,3 +27,18 @@ datatables.create('#countriesTable', {
     filters: [{ name: 'status', el: '#status' }]
 });
 ```
+
+### Implementasi Spesifik Event Filter
+
+Secara umum penggunaan filter akan di trigger menggunakan `event` **change** dan telah dijadikan sebagai event default pada Iampact, namun apabila anda memerlukan event trigger lain, anda dapat menambahkan properti `event`.
+
+```js {6}
+datatables.create('#countriesTable', {
+    url: 'http://localhost:8000/countries',
+    columns: columns,
+    filters: [
+        { name: 'status', el: '#status' },
+        { name: 'category', el: '#category', event: 'click' }
+    ]
+});
+```

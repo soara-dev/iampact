@@ -2,6 +2,8 @@ import React from "react";
 import clsx from "clsx";
 import { useDocsSidebar } from "@docusaurus/plugin-content-docs/client";
 import styles from "./styles.module.css";
+import Footer from "@theme/Footer";
+
 export default function DocRootLayoutMain({
   hiddenSidebarContainer,
   children,
@@ -11,7 +13,8 @@ export default function DocRootLayoutMain({
     <main
       className={clsx(
         styles.docMainContainer,
-        (hiddenSidebarContainer || !sidebar) && styles.docMainContainerEnhanced
+        (hiddenSidebarContainer || !sidebar) && styles.docMainContainerEnhanced,
+        "iampact-main-doc"
       )}
     >
       <div
@@ -23,6 +26,7 @@ export default function DocRootLayoutMain({
       >
         {children}
       </div>
+      <Footer />
     </main>
   );
 }

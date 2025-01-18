@@ -7,14 +7,6 @@ sidebar_label: "Validation"
 
 Menampilkan validasi dari server merupakan hal yang penting dalam pengembangan aplikasi. Validasi ini dapat digunakan untuk memberikan feedback kepada pengguna terkait data yang diinputkan. Pada umumnya, validasi dilakukan pada saat melakukan request ke server. Berikut adalah contoh validasi yang dapat dilakukan pada saat melakukan request.
 
-### Inisialisasi
-
-Sebelum melakukan request, pastikan anda telah menginisialisasi iampack pada aplikasi anda. Berikut adalah contoh penggunaan iampack pada aplikasi anda.
-
-```js
-const { validate } = iampact.http;
-```
-
 ### Menampilkan Pesan Error
 
 Pada iampack anda dapat langsung menampilkan pesan error yang diberikan oleh server secara otomatis pada inputan yang di validasi. Berikut adalah contoh penggunaan validasi pada saat melakukan request. fungsi `validate` akan menampilkan pesan error pada inputan yang di validasi dengan default class `is-invalid`. dan pesan error akan di tampilkan pada element dengan class `invalid-feedback`.
@@ -33,14 +25,14 @@ import TabItem from "@theme/TabItem";
     ```
   </TabItem>
   <TabItem value="javascript" label="JS">
-    ```js
+    ```js {7}
     $("#form").on('submit',function(e){
         e.preventDefault();
-        request({
+        http.request({
             url: "https://jsonplaceholder.typicode.com/posts",
             data: $(this).serialize(),
             onError: function(err) {
-                validate(err.responseJSON);
+                http.validate(err.responseJSON);
             }
         })
     })
@@ -63,7 +55,9 @@ import TabItem from "@theme/TabItem";
   </TabItem>
 </Tabs>
 :::warning
-Pesan error yang dihasilkan oleh server harus mengikuti format yang telah ditentukan oleh iampack. berikan status code `422` pada saat melakukan validas serta attribute validate disamakan dengan name dari inputan yang di validasi.
+Pesan error yang dihasilkan oleh server harus mengikuti format yang telah ditentukan oleh iampact. Gunakan status code `422` untuk respon validasi, dan pastikan atribut validasi disamakan dengan nilai name dari input yang divalidasi.
+
+Jika Anda menggunakan **$request->validate()** di Laravel, format pesan error secara default sudah sesuai dengan standar ini.
 :::
 
 ### Integrasi Library Lain
