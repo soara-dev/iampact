@@ -1,15 +1,17 @@
-import httpInstance from "./feature/http/http";
+import http from "./feature/http/http";
+import datatables from "./feature/datatables/datatables";
+import * as formatter from "./feature/formatter/formatter";
 import notify from "./feature/notify/notify";
 import validate from "./feature/http/validate";
-import datatables from "./feature/datatables/datatables";
 
 const iampact = {
   http: {
-    create: httpInstance.create,
-    request: httpInstance.request,
+    create: http.create,
+    request: http.request,
     validate,
   },
   datatables,
+  formatter,
   notify,
 };
 

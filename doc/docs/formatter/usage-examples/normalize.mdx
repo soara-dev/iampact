@@ -1,0 +1,22 @@
+---
+sidebar_position: 4
+sidebar_label: "Normalize"
+---
+
+# Normalize
+
+Fungsi `normalize` digunakan untuk menghapus spasi ekstra yang ada di sekitar atau di dalam sebuah string, sehingga hanya ada satu spasi antar kata.
+
+### Implementasi Normalize
+
+Fungsi `normalize` sangat berguna ketika Anda ingin membersihkan string dari spasi yang berlebihan dan memastikan bahwa hanya ada satu spasi antara setiap kata. Ini berguna, misalnya, untuk membersihkan input dari pengguna atau teks yang tidak terformat dengan baik.
+
+```js
+const { normalize } = iampact.formatter;
+```
+
+```js
+normalize("hello       iampact   "); // result: hello iampact
+```
+
+Pada contoh di atas, fungsi `normalize` akan mengubah string **"hello&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iampact&nbsp;&nbsp;&nbsp;"** menjadi **"hello iampact"**, dengan menghapus spasi ekstra dan memastikan hanya ada satu spasi di antara kata-kata. Fungsi ini sangat berguna untuk memastikan teks yang lebih bersih dan konsisten, terutama dalam proses pemrosesan data atau pembersihan input.
