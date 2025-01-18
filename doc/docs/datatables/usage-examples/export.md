@@ -7,6 +7,19 @@ sidebar_label: 'Export'
 
 Fitur `export` memungkinkan Anda untuk mengekspor data dari datatables ke berbagai format, seperti `pdf`, `excel`, `csv`, serta `copy` dan `print`. Anda dapat menyesuaikan kolom yang ingin diekspor dan mengonfigurasi berbagai opsi, seperti judul, orientasi PDF, dan pengaturan lainnya pada masing-masing format.
 
+
+### Inisialisasi
+Pastikan sebelum menggunakan fitur `export`, Anda telah menginisialisasi datatables export terlebih dahulu.
+
+```html
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.2.0/js/buttons.html5.min.js"></script>
+```
+
 ### Implementasi Export
 
 Untuk menambahkan fitur ekspor pada datatables, Anda dapat menggunakan properti `export` dengan menentukan elemen tombol, nama file (title) yang akan digunakan dalam ekspor, serta kolom yang akan diekspor.
