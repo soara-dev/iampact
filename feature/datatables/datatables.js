@@ -31,7 +31,7 @@ class Datatables {
   }
 
   #search(el) {
-    if (!el) return console.error(`Iampact: Search element not found!`);
+    if (!el) return
     let debounceTimeout, previousValue;
     $(document).on("keyup", el, (e) => {
       clearTimeout(debounceTimeout);
@@ -46,6 +46,7 @@ class Datatables {
   }
 
   #filters(param) {
+    if (!param) return
     return param.forEach((item) => {
       const { el, name, event = "change" } = item;
       $(document).on(event, el, (e) => {
@@ -56,6 +57,7 @@ class Datatables {
   }
 
   #export(param) {
+    if (!param) return;
     const { el } = param;
     this.#loadExport(param);
     $(document).on("click", `${el} [data-export]`, (e) => {
@@ -70,6 +72,7 @@ class Datatables {
   }
 
   #loadFilter(param) {
+    if (!param) return;
     return param.reduce((acc, item) => {
       $(item.el).val(item.val).trigger("change");
       acc[item.name] = item.val || "";
@@ -90,8 +93,8 @@ class Datatables {
 
     const filteredColumns = except
       ? this.columns
-          .map((_, index) => index)
-          .filter((_, index) => !except.includes(index))
+        .map((_, index) => index)
+        .filter((_, index) => !except.includes(index))
       : columns;
 
     const dataButtons = $(`${el} [data-export]`)
@@ -130,51 +133,51 @@ class Datatables {
         } else if (button[0].className.indexOf("buttons-excel") >= 0) {
           $.fn.dataTable.ext.buttons.excelHtml5.available(dt, config)
             ? $.fn.dataTable.ext.buttons.excelHtml5.action.call(
-                self,
-                e,
-                dt,
-                button,
-                config
-              )
+              self,
+              e,
+              dt,
+              button,
+              config
+            )
             : $.fn.dataTable.ext.buttons.excelFlash.action.call(
-                self,
-                e,
-                dt,
-                button,
-                config
-              );
+              self,
+              e,
+              dt,
+              button,
+              config
+            );
         } else if (button[0].className.indexOf("buttons-csv") >= 0) {
           $.fn.dataTable.ext.buttons.csvHtml5.available(dt, config)
             ? $.fn.dataTable.ext.buttons.csvHtml5.action.call(
-                self,
-                e,
-                dt,
-                button,
-                config
-              )
+              self,
+              e,
+              dt,
+              button,
+              config
+            )
             : $.fn.dataTable.ext.buttons.csvFlash.action.call(
-                self,
-                e,
-                dt,
-                button,
-                config
-              );
+              self,
+              e,
+              dt,
+              button,
+              config
+            );
         } else if (button[0].className.indexOf("buttons-pdf") >= 0) {
           $.fn.dataTable.ext.buttons.pdfHtml5.available(dt, config)
             ? $.fn.dataTable.ext.buttons.pdfHtml5.action.call(
-                self,
-                e,
-                dt,
-                button,
-                config
-              )
+              self,
+              e,
+              dt,
+              button,
+              config
+            )
             : $.fn.dataTable.ext.buttons.pdfFlash.action.call(
-                self,
-                e,
-                dt,
-                button,
-                config
-              );
+              self,
+              e,
+              dt,
+              button,
+              config
+            );
         } else if (button[0].className.indexOf("buttons-print") >= 0) {
           $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
         }
