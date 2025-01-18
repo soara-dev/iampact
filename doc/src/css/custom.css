@@ -67,6 +67,7 @@ h6,
 /* ------------- DOCS LAYOUT ------------- */
 .iampact-main-doc {
   flex-direction: column;
+  justify-content: space-between;
 }
 
 /* ---------------- NAVBAR --------------- */
