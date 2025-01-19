@@ -1,3 +1,5 @@
+import { clearValidate } from "./validate";
+
 class Http {
   constructor(config = {}) {
     this.baseUrl = config.baseUrl || "";

@@ -4,7 +4,7 @@ export function clearValidate() {
   allValidate.next(".invalid-feedback").remove();
 }
 
-export default function validate(res) {
+export function validate(res) {
   clearValidate();
   const errors = res.errors || [];
   $.each(errors, function (index, error) {
