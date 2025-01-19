@@ -7,6 +7,7 @@ class Tables {
     this.url = config.url || "";
     this.columns = config.columns || [];
     this.dataFilter = this.#loadFilter(config.filters) || {};
+    this.initComplete = config.initComplete || (() => {});
     this.#search(config.search);
     this.#filters(config.filters);
     this.#export(config.export);
@@ -23,6 +24,9 @@ class Tables {
         data: (d) => {
           return $.extend({}, d, this.dataFilter);
         },
+      },
+      initComplete: () => {
+        this.initComplete(this.el);
       },
       order: [],
       columns: this.columns,
@@ -194,7 +198,11 @@ class Tables {
 }
 
 export default {
+  config(config = {}) {
+    this.globalConfig = config;
+  },
+
   create(el = "", config) {
-    return new Tables({ el, ...config }).init();
+    return new Tables({ el, ...this.globalConfig, ...config }).init();
   },
 };
