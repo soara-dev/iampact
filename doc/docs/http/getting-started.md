@@ -30,5 +30,5 @@ http.request({
 ```
 
 :::info
-Pada modul `http`, properti `method` secara default bernilai `GET`. Oleh karena itu, Anda dapat mengabaikan properti ini jika ingin menggunakan metode `GET`. Lebih lengkap bisa cek [Referensi API Http](api-reference.md).
+Pada module `http`, properti `method` secara default bernilai `GET`. Oleh karena itu, Anda dapat mengabaikan properti ini jika ingin menggunakan metode `GET`. Lebih lengkap bisa cek [Referensi API Http](api-reference.md).
 :::

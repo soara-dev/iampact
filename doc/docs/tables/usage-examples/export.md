@@ -5,11 +5,11 @@ sidebar_label: 'Export'
 
 # Export
 
-Fitur `export` memungkinkan Anda untuk mengekspor data dari datatables ke berbagai format, seperti `pdf`, `excel`, `csv`, serta `copy` dan `print`. Anda dapat menyesuaikan kolom yang ingin diekspor dan mengonfigurasi berbagai opsi, seperti judul, orientasi PDF, dan pengaturan lainnya pada masing-masing format.
+Fitur `export` memungkinkan Anda untuk mengekspor data dari **tables** ke berbagai format, seperti `pdf`, `excel`, `csv`, serta `copy` dan `print`. Anda dapat menyesuaikan kolom yang ingin diekspor dan mengonfigurasi berbagai opsi, seperti judul, orientasi PDF, dan pengaturan lainnya pada masing-masing format.
 
 
 ### Inisialisasi
-Pastikan sebelum menggunakan fitur `export`, Anda telah menginisialisasi datatables export terlebih dahulu.
+Pastikan sebelum menggunakan fitur `export`, Anda telah menginisialisasi [**dependency datatables**](../../installation.md) export terlebih dahulu.
 
 ```html
 <script src="https://cdn.datatables.net/buttons/3.2.0/js/dataTables.buttons.js"></script>
@@ -22,7 +22,7 @@ Pastikan sebelum menggunakan fitur `export`, Anda telah menginisialisasi datatab
 
 ### Implementasi Export
 
-Untuk menambahkan fitur ekspor pada datatables, Anda dapat menggunakan properti `export` dengan menentukan elemen tombol, nama file (title) yang akan digunakan dalam ekspor, serta kolom yang akan diekspor.
+Untuk menambahkan fitur ekspor pada **tables**, Anda dapat menggunakan properti `export` dengan menentukan elemen tombol, nama file (title) yang akan digunakan dalam ekspor, serta kolom yang akan diekspor.
 
 Pastikan pada elemen tombol export yang dibuat terdapat child dengan atribut `data-export` yang memiliki value format yang diinginkan, seperti `excel`, `pdf`, atau `csv`.
 
@@ -41,7 +41,7 @@ Pastikan pada elemen tombol export yang dibuat terdapat child dengan atribut `da
 ```
 
 ```js {4}
-datatables.create('#countriesTable', {
+tables.create('#countriesTable', {
     url: actionURL,
     columns: columns,
     export: { el: '#export', title: 'Countries', columns: [0, 1] }
@@ -50,10 +50,10 @@ datatables.create('#countriesTable', {
 
 ### Export Semua Kolom
 
-Pada beberapa kasus, Anda mungkin ingin mengekspor semua kolom yang ada di dalam datatables tanpa harus menyebutkan kolom satu per satu. Untuk itu, Anda dapat meninggalkan properti `columns` pada konfigurasi ekspor. Ini memungkinkan Anda untuk mengekspor seluruh data dalam tabel dengan cara yang lebih sederhana dan efisien.
+Pada beberapa kasus, Anda mungkin ingin mengekspor semua kolom yang ada di dalam **tables** tanpa harus menyebutkan kolom satu per satu. Untuk itu, Anda dapat meninggalkan properti `columns` pada konfigurasi ekspor. Ini memungkinkan Anda untuk mengekspor seluruh data dalam tabel dengan cara yang lebih sederhana dan efisien.
 
 ```js {4}
-datatables.create('#countriesTable', {
+tables.create('#countriesTable', {
     url: actionURL,
     columns: columns,
     export: { el: '#export', title: 'Countries' }
@@ -62,10 +62,10 @@ datatables.create('#countriesTable', {
 
 ### Export Kecuali Kolom Tertentu
 
-Pada beberapa kasus, Anda mungkin ingin mengekspor semua kolom dari datatables kecuali kolom-kolom tertentu. Anda dapat menggunakan properti `except` untuk mengecualikan kolom dengan indeks yang ditentukan.
+Pada beberapa kasus, Anda mungkin ingin mengekspor semua kolom dari **tables** kecuali kolom-kolom tertentu. Anda dapat menggunakan properti `except` untuk mengecualikan kolom dengan indeks yang ditentukan.
 
 ```js {4}
-datatables.create('#countriesTable', {
+tables.create('#countriesTable', {
     url: actionURL,
     columns: columns,
     export: { el: '#export', title: 'Countries', except: [3] }

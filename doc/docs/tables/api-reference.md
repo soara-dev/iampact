@@ -5,7 +5,7 @@ sidebar_label: "API Reference"
 
 # Referensi API
 
-Dokumentasi / Referensi API untuk modul Datatables yang telah ditentukan.
+Dokumentasi / Referensi API untuk module Tables yang telah ditentukan.
 
 <table>
   <thead>
@@ -21,7 +21,7 @@ Dokumentasi / Referensi API untuk modul Datatables yang telah ditentukan.
     <tr>
       <td><small>`create`</small></td>
       <td><small>`function`</small></td>
-      <td><small>Digunakan untuk menginisialisasi datatables.</small></td>
+      <td><small>Digunakan untuk menginisialisasi tables.</small></td>
       <td><small>`element`, `params`</small></td>
       <td><small>`-`</small></td>
     </tr>
