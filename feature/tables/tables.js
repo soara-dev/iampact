@@ -17,7 +17,7 @@ class Tables {
     this.instance = $(this.el).DataTable({
       processing: true,
       serverSide: true,
-      responsive: true,
+      responsive: false,
       ajax: {
         url: this.url,
         type: "GET",
