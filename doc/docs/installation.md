@@ -72,5 +72,5 @@ Berikut adalah contoh HTML dasar untuk memulai dengan Iampact. Pada contoh ini, 
 :::info
 Pada contoh di atas, kita menyertakan **jQuery** karena banyak fungsi Iampact yang bergantung padanya, **SweetAlert2** untuk notifikasi dan popup, dan **Iampact** itu sendiri untuk memanfaatkan seluruh fungsionalitas.
 
-Apabila Anda akan menggunakan modul **Tables**, seperti untuk menampilkan tabel interaktif, Anda perlu menambahkan **DataTables**. Jika Anda ingin menggunakan fitur **Export** untuk mengekspor data tabel ke format seperti `Excel` atau `PDF`, Anda juga harus menambahkan dependensi tambahan tersebut.
+Apabila Anda akan menggunakan module **Tables**, seperti untuk menampilkan tabel interaktif, Anda perlu menambahkan **DataTables**. Jika Anda ingin menggunakan fitur **Export** untuk mengekspor data tabel ke format seperti `Excel` atau `PDF`, Anda juga harus menambahkan dependensi tambahan tersebut.
 :::

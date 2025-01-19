@@ -7,7 +7,7 @@ sidebar_label: "Overview"
 
 ### Apa itu Notify?
 
-**Notify** adalah salah satu modul dari Iampact yang dirancang untuk menangani notifikasi atau pemberitahuan di aplikasi Anda. Dengan `Notify`, Anda dapat menampilkan pesan kepada pengguna dalam berbagai situasi, seperti saat proses berhasil, terjadi kesalahan, atau untuk meminta konfirmasi tindakan.
+**Notify** adalah salah satu module dari Iampact yang dirancang untuk menangani notifikasi atau pemberitahuan di aplikasi Anda. Dengan `Notify`, Anda dapat menampilkan pesan kepada pengguna dalam berbagai situasi, seperti saat proses berhasil, terjadi kesalahan, atau untuk meminta konfirmasi tindakan.
 
 Komponen ini menggunakan library Swal **(SweetAlert)** sebagai basisnya, tetapi telah disederhanakan agar lebih mudah digunakan dan dapat disesuaikan dengan kebutuhan Anda. Tidak perlu lagi menulis kode notifikasi secara manual—cukup gunakan metode yang telah disediakan oleh `Notify`.
 
@@ -16,7 +16,7 @@ Komponen ini menggunakan library Swal **(SweetAlert)** sebagai basisnya, tetapi 
 - **Sederhana**: API yang mudah dipahami, memungkinkan Anda menampilkan notifikasi hanya dengan satu baris kode.
 - **Seragam**: Semua notifikasi memiliki gaya dan tampilan yang konsisten di seluruh aplikasi.
 - **Kustomisasi Mudah**: Anda dapat menyesuaikan pesan, ikon, tombol, dan durasi notifikasi dengan mudah.
-- **Integrasi yang Baik**: Dapat digunakan bersama modul lain seperti Http, sehingga notifikasi otomatis muncul berdasarkan hasil AJAX.
+- **Integrasi yang Baik**: Dapat digunakan bersama module lain seperti Http, sehingga notifikasi otomatis muncul berdasarkan hasil AJAX.
 
 ### Kapan Menggunakan Notify?
 

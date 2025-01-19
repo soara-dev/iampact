@@ -5,19 +5,19 @@ sidebar_label: "Getting Started"
 
 # Panduan Awal
 
-Untuk mulai menggunakan **Datatables** di aplikasi Anda, ikuti langkah-langkah sederhana berikut:
+Untuk mulai menggunakan **Tables** di aplikasi Anda, ikuti langkah-langkah sederhana berikut:
 
 ### Inisialisasi
 
 Pastikan Anda sudah mengintegrasikan **Iampact** ke dalam proyek Anda. Jika belum, Anda bisa memulai dengan mengunduh atau menginstal Iampact.
 
 ```js
-const { datatables } = iampact;
+const { tables } = iampact;
 ```
 
 ### Contoh Penggunaan
 
-Datatables dirancang agar sangat mudah digunakan, dengan dua property `url` dan `columns` saja Anda sudah dapat menampilkan datatables dengan metode pengambil ajax yang pada code aslinya memerlukan penulisan yang cukup panjang.
+Tables dirancang agar sangat mudah digunakan, dengan dua property `url` dan `columns` saja Anda sudah dapat menampilkan tables dengan metode pengambil ajax yang pada code aslinya memerlukan penulisan yang cukup panjang.
 
 ```html
 <div class="table-responsive">
@@ -38,7 +38,7 @@ const columns = [{
     title: 'Name'
 }];
 
-datatables.create('#countriesTable', {
+tables.create('#countriesTable', {
     url: 'http://localhost:8000/countries',
     columns: columns
 });

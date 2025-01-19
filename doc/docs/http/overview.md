@@ -7,7 +7,7 @@ sidebar_label: "Overview"
 
 ### Apa itu Http?
 
-**Http** adalah salah satu modul dari Iampact yang dirancang untuk menangani permintaan HTTP di aplikasi Anda. Dengan `Http`, Anda dapat mengirim permintaan ke server dan menangani respons yang diterima. Modul ini memungkinkan Anda untuk mengatur konfigurasi default, menambahkan header, dan menangani respons dengan mudah.
+**Http** adalah salah satu module dari Iampact yang dirancang untuk menangani permintaan HTTP di aplikasi Anda. Dengan `Http`, Anda dapat mengirim permintaan ke server dan menangani respons yang diterima. Module ini memungkinkan Anda untuk mengatur konfigurasi default, menambahkan header, dan menangani respons dengan mudah.
 
 Komponen ini menggunakan library ajax sebagai basisnya, tetapi telah disederhanakan agar lebih mudah digunakan dan dapat disesuaikan dengan kebutuhan Anda. Tidak perlu lagi menulis kode permintaan HTTP secara manual—cukup gunakan metode yang telah disediakan oleh `Http`.
 
@@ -25,7 +25,7 @@ Http akan sangat berguna dalam situasi berikut:
 - Menangani respons dari server, seperti menampilkan data atau menampilkan pesan kesalahan.
 - Ingin menambahkan konfigurasi default untuk setiap permintaan yang dilakukan.
 
-<!-- 
+<!--
 ```js
 iam.request({
   method: "GET",

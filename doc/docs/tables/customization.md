@@ -10,7 +10,7 @@ sidebar_label: "Customization"
 Format Global adalah konfigurasi umum yang berlaku untuk masing-masing format ekspor, seperti `excel`, `csv`, `pdf`, dan lainnya. Anda dapat menyesuaikan berbagai pengaturan seperti **title**, **orientation** *untuk pdf*, **exportOptions**, dan **customize** untuk kustomisasi file ekspor sesuai kebutuhan.
 
 ```js
-datatables.create('#countriesTable', {
+tables.create('#countriesTable', {
     url: actionURL,
     columns: columns,
     export: {

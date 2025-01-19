@@ -5,7 +5,7 @@ sidebar_label: "API Reference"
 
 # Referensi API
 
-Dokumentasi / Referensi API untuk modul Notify yang telah ditentukan.
+Dokumentasi / Referensi API untuk module Notify yang telah ditentukan.
 
 <table>
   <thead>

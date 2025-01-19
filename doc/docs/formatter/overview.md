@@ -7,7 +7,7 @@ sidebar_label: "Overview"
 
 ### Apa itu Formatter?
 
-**Formatter** adalah modul di Iampact yang menyediakan berbagai fungsi utilitas untuk memformat dan memanipulasi string secara efisien. Modul ini dirancang untuk mempermudah tugas-tugas umum dalam pengolahan teks, seperti mengubah huruf pertama kata menjadi kapital, mengubah teks menjadi slug, menghapus karakter non-alfanumerik, dan lain-lain, dengan kode yang seminimal mungkin.
+**Formatter** adalah module di Iampact yang menyediakan berbagai fungsi utilitas untuk memformat dan memanipulasi string secara efisien. Module ini dirancang untuk mempermudah tugas-tugas umum dalam pengolahan teks, seperti mengubah huruf pertama kata menjadi kapital, mengubah teks menjadi slug, menghapus karakter non-alfanumerik, dan lain-lain, dengan kode yang seminimal mungkin.
 
 ### Keunggulan Formatter
 
