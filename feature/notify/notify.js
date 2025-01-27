@@ -50,10 +50,8 @@ class Notify {
   }
 
   confirm(param) {
-    // prettier-ignore
-    const { title, text, config } = this.#buildConfig(param, '', "confirm");
     return new Promise((resolve) => {
-      Swal.fire({ title, text, ...config }).then((result) => {
+      Swal.fire({ ...this.globalConfirm, ...param }).then((result) => {
         resolve(result.isConfirmed);
       });
     });
