@@ -1,41 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
-    <script src="./dist/main.js"></script>
-    <script>
-      const { validate, currency } = iam.utils;
-      const app = iam.create({
-        baseUrl: "https://jsonplaceholder.typicode.com",
-        onSuccess: (data) => {
-          console.log(data);
-        },
-      });
 
-      app.request({
-        url: "/todos/",
-        method: "GET",
-        onSuccess: (data) => {
-          console.log("wadi");
-        },
-      });
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      iam.request({
-        url: "https://jsonplaceholder.typicode.com/todos/1",
-        method: "GET",
-        onSuccess: (data) => {
-          console.log(data);
-        },
-      });
-    </script>
-  </body>
+<body>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script src="./dist/main.js"></script>
+  <script>
+    const { http } = iampact;
+  </script>
+</body>
+
 </html>
