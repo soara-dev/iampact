@@ -1,0 +1,56 @@
+---
+sidebar_position: 4
+sidebar_label: "Fill Form"
+---
+
+# Fill Form
+
+Pada saat melakukan edit data terkadang kita harus melakukan set data ke dalam input secara satu persatu agar data dapat di edit oleh pengguna. Developer dapat melakukan set value kedalam inputan secara otomatis menggunakan fillForm. Berikut adalah contoh penggunaan fillForm pada aplikasi
+
+### Menampilkan Data ke Inputan
+
+Pada iampact anda dapat langsung menampilkan data ke inputan form secara langsung dengan fillForm, fillForm akan otomatis mencari input name yang sama dengan key pada object yang akan di set.
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+<Tabs>
+  <TabItem value="html" label="HTML" default>
+    ```html
+    <form id="form">
+        <input type="text" name="name" validate="name">
+        <input type="text" name="age" validate="age">
+        <button type="submit">Submit</button>
+    </form>
+    ```
+  </TabItem>
+  <TabItem value="javascript" label="JS">
+    ```js {7}
+    const data ={
+        "name": "Harithya Wisesa",
+        "email": "admin@gmail.com",
+        "phone": "081234567890"
+    }
+
+    http.fillForm(data)
+    ```
+
+  </TabItem>
+</Tabs>
+
+### Menambahkan Pengecualian
+
+Pada saat melakukan edit data terkadang kita tidak ingin ada data yang di tampilkan di dalam input contohnya seperti password. pengguna harus mengisi ulang password. kita dapat menggunakan param expect pada fillForm.
+
+```js
+const data = {
+  name: "Harithya Wisesa",
+  email: "admin@gmail.com",
+  phone: "081234567890",
+  password: "di enkripsi nih bosss",
+};
+
+http.fillForm(data, {
+  expect: ["password"],
+});
+```
