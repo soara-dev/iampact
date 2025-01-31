@@ -26,7 +26,11 @@ class Tables {
         },
       },
       initComplete: () => {
-        this.initComplete(this.el);
+        const params = {
+          el: this.el,
+          instance: this.instance,
+        };
+        this.initComplete(params);
       },
       order: [],
       columns: this.columns,
