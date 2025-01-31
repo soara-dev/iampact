@@ -17,7 +17,7 @@ class Tables {
     this.instance = $(this.el).DataTable({
       processing: true,
       serverSide: true,
-      responsive: true,
+      responsive: false,
       ajax: {
         url: this.url,
         type: "GET",
@@ -26,7 +26,11 @@ class Tables {
         },
       },
       initComplete: () => {
-        this.initComplete(this.el);
+        const params = {
+          el: this.el,
+          instance: this.instance,
+        };
+        this.initComplete(params);
       },
       order: [],
       columns: this.columns,
