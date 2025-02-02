@@ -7,7 +7,9 @@ class Tables {
     this.url = config.url || "";
     this.columns = config.columns || [];
     this.dataFilter = this.#loadFilter(config.filters) || {};
+    this.datas = config.datas || {};
     this.initComplete = config.initComplete || (() => {});
+    this.buttons = this.#loadExport(config.export) || {};
     this.#search(config.search);
     this.#filters(config.filters);
     this.#export(config.export);
@@ -22,7 +24,7 @@ class Tables {
         url: this.url,
         type: "GET",
         data: (d) => {
-          return $.extend({}, d, this.dataFilter);
+          return $.extend({}, d, this.dataFilter, this.datas);
         },
       },
       initComplete: () => {
@@ -34,6 +36,7 @@ class Tables {
       },
       order: [],
       columns: this.columns,
+      buttons: this.buttons,
     });
     return this.instance;
   }
@@ -67,7 +70,6 @@ class Tables {
   #export(param) {
     if (!param) return;
     const { el } = param;
-    this.#loadExport(param);
     $(document).on("click", `${el} [data-export]`, (e) => {
       e.preventDefault();
       const exportType = $(e.currentTarget).data("export");
@@ -89,6 +91,7 @@ class Tables {
   }
 
   #loadExport(param) {
+    if (!param) return;
     const { el, title, columns = ":visible", except = [] } = param;
 
     const dataExtends = {
@@ -120,7 +123,7 @@ class Tables {
       })
       .get();
 
-    $.extend($.fn.dataTable.defaults, { buttons: dataButtons });
+    return dataButtons;
   }
 
   #handleExportAction(e, dt, button, config) {
