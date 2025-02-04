@@ -9,6 +9,7 @@ class Tables {
     this.dataFilter = this.#loadFilter(config.filters) || {};
     this.datas = config.datas || {};
     this.initComplete = config.initComplete || (() => {});
+    this.drawCallback = config.drawCallback || (() => {});
     this.buttons = this.#loadExport(config.export) || {};
     this.#search(config.search);
     this.#filters(config.filters);
@@ -33,6 +34,13 @@ class Tables {
           instance: this.instance,
         };
         this.initComplete(params);
+      },
+      drawCallback: () => {
+        const params = {
+          el: this.el,
+          instance: this.instance,
+        };
+        this.drawCallback(params);
       },
       order: [],
       columns: this.columns,
