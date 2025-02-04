@@ -32,6 +32,8 @@ class Tables {
         const params = {
           el: this.el,
           instance: this.instance,
+          columns: this.columns,
+          datas: this.datas,
         };
         this.initComplete(params);
       },
@@ -39,6 +41,8 @@ class Tables {
         const params = {
           el: this.el,
           instance: this.instance,
+          columns: this.columns,
+          datas: this.datas,
         };
         this.drawCallback(params);
       },
@@ -46,7 +50,7 @@ class Tables {
       columns: this.columns,
       buttons: this.buttons,
     });
-    return this.instance;
+    return this;
   }
 
   #search(el) {
