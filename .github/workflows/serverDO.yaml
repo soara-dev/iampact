@@ -1,19 +1,20 @@
 name: Deploy IAM Starterpack
 
 on:
-  push:
-    branches:
-      - main  # Sesuaikan dengan branch yang digunakan
+  release:
+    types: [published]  # Hanya berjalan saat ada release baru
 
 jobs:
   deploy:
-    runs-on: dev  # Menggunakan runner di server
+    runs-on: dev 
 
     steps:
       - name: Pull latest changes
         run: |
           cd /var/www/iam-starterpack
-          sudo git pull origin main
+          sudo git fetch --tags  # Ambil semua tag terbaru
+          sudo git checkout $GITHUB_REF  # Checkout ke tag release baru
+          sudo git pull origin $GITHUB_REF  # Pull perubahan dari tag
 
       - name: Install dependencies
         run: |
@@ -21,7 +22,7 @@ jobs:
           sudo npm install
           sudo npm run build
 
-      - name: Install dependencies docs
+      - name: Install dependencies for docs
         run: |
           cd /var/www/iam-starterpack/doc
           sudo npm install
