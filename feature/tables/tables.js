@@ -7,10 +7,14 @@ class Tables {
     this.url = config.url || "";
     this.columns = config.columns || [];
     this.dataFilter = this.#loadFilter(config.filters) || {};
-    this.datas = config.datas || {};
+    this.data = config.data || {};
     this.initComplete = config.initComplete || (() => {});
     this.drawCallback = config.drawCallback || (() => {});
     this.buttons = this.#loadExport(config.export) || {};
+    this.lengthMenu = config.lengthMenu || [
+      [10, 25, 50, 100],
+      [10, 25, 50, 100],
+    ];
     this.#search(config.search);
     this.#filters(config.filters);
     this.#export(config.export);
@@ -25,7 +29,7 @@ class Tables {
         url: this.url,
         type: "GET",
         data: (d) => {
-          return $.extend({}, d, this.dataFilter, this.datas);
+          return $.extend({}, d, this.dataFilter, this.data);
         },
       },
       initComplete: () => {
@@ -33,7 +37,7 @@ class Tables {
           el: this.el,
           instance: this.instance,
           columns: this.columns,
-          datas: this.datas,
+          data: this.data,
         };
         this.initComplete(params);
       },
@@ -42,13 +46,14 @@ class Tables {
           el: this.el,
           instance: this.instance,
           columns: this.columns,
-          datas: this.datas,
+          data: this.data,
         };
         this.drawCallback(params);
       },
       order: [],
       columns: this.columns,
       buttons: this.buttons,
+      lengthMenu: this.lengthMenu,
     });
     return this;
   }
