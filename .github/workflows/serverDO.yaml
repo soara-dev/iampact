@@ -1,0 +1,24 @@
+name: Deploy IAM Starterpack
+
+on:
+  push:
+    branches:
+      - main  # Sesuaikan dengan branch yang digunakan
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # Menggunakan runner di server
+
+    steps:
+      - name: Pull latest changes
+        run: |
+          cd /var/www/iam-starterpack
+          sudo git pull origin main
+
+      - name: Install dependencies
+        run: |
+          cd /var/www/iam-starterpack
+          sudo npm install
+
+      - name: Restart PM2 service
+        run: pm2 restart iam-starterpack
