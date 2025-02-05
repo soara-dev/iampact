@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted  # Menggunakan runner di server
+    runs-on: dev  # Menggunakan runner di server
 
     steps:
       - name: Pull latest changes
