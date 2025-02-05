@@ -1,8 +1,9 @@
 name: Deploy IAM Starterpack
 
 on:
-  release:
-    types: [published]  # Hanya berjalan saat ada release baru
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   deploy:
