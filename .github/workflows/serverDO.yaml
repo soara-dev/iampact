@@ -19,6 +19,13 @@ jobs:
         run: |
           cd /var/www/iam-starterpack
           sudo npm install
+          sudo npm run build
+
+      - name: Install dependencies docs
+        run: |
+          cd /var/www/iam-starterpack/doc
+          sudo npm install
+          sudo npm run build 
 
       - name: Restart PM2 service
-        run: pm2 restart iam-starterpack
+        run: sudo pm2 restart iam-starterpack
