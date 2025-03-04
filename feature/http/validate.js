@@ -14,8 +14,9 @@ export function validate(res) {
       element.addClass("is-invalid");
       element.after(`<div class="invalid-feedback">${error}</div>`);
     } else {
-      const element = $(`[validate="${split[0]}.*"]`);
-      const index = split[1];
+      const baseSelector = split.slice(0, -1).join(".");
+      const index = split[split.length - 1];
+      const element = $(`[validate="${baseSelector}.*"]`);
       element.eq(index).addClass("is-invalid");
       element.eq(index).after(`<div class="invalid-feedback">${error}</div>`);
     }
