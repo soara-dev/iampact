@@ -43,7 +43,7 @@ Untuk menggunakan Iampact, Anda perlu menyertakan beberapa dependensi berikut di
 5. **Iampact**: Sertakan library utama setelah dependensi lain.
 
     ```html
-    <script src="https://iam-starterpack.iamevent.my.id/dist/main.js"></script>
+    <script src="https://iampact.smactactic.dev/dist/main.js"></script>
     ```
 
 ### Contoh Minimum
@@ -63,7 +63,7 @@ Berikut adalah contoh HTML dasar untuk memulai dengan Iampact. Pada contoh ini, 
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://iam-starterpack.iamevent.my.id/dist/main.js"></script>
+  <script src="https://iampact.smactactic.dev/dist/main.js"></script>
 </body>
 </html>
 

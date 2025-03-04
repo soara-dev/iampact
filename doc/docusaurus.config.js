@@ -4,7 +4,7 @@ const config = {
   title: "Iampact",
   tagline: "Ngoding Makin Simple tapi Powerful Gesss ",
   favicon: "img/favicon.ico?v=1",
-  url: "https://iam-starterpack.iamevent.my.id/",
+  url: "https://iampact.smactactic.dev/",
   baseUrl: "/",
   organizationName: "facebook",
   projectName: "docusaurus",

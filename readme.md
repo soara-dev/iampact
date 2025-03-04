@@ -18,7 +18,7 @@
 
 ### Dokumentasi
 
-Dokumentasi lengkap tentang Iampack, API, dan antarmuka plug-in tersedia di situs web [Iampack](https://iam-starterpack.iamevent.my.id/). Situs ini juga berisi informasi tentang berbagai macam plug-in yang tersedia untuk Iampack, yang dapat digunakan untuk mempermudah penggunaan.
+Dokumentasi lengkap tentang Iampack, API, dan antarmuka plug-in tersedia di situs web [Iampack](https://iampact.smactactic.dev/). Situs ini juga berisi informasi tentang berbagai macam plug-in yang tersedia untuk Iampack, yang dapat digunakan untuk mempermudah penggunaan.
 
 ### Lisensi
 
