@@ -60,6 +60,19 @@ Pesan error yang dihasilkan oleh server harus mengikuti format yang telah ditent
 Jika Anda menggunakan **$request->validate()** di Laravel, format pesan error secara default sudah sesuai dengan standar ini.
 :::
 
+### Menampilkan Pesan Error Multi input
+Pada kasus dimana inputan yang di validasi lebih dari satu, anda dapat menampilkan pesan error pada inputan yang di validasi dengan menambahkan attribute `validate=name.*` pada inputan tersebut.
+
+```html
+<form id="form">
+    <input type="text" name="age[]" validate="age.*">
+    <input type="text" name="age[]" validate="age.*">
+    <input type="text" name="age[]" validate="age.*">
+    <button type="submit">Submit</button
+</form>
+```
+
+
 ### Integrasi Library Lain
 
 Pada saat pengembangan aplikasi, kita sering kali menggunakan library pihak ketiga untuk melakukan custom inputan seperti datepicker, select2, dll. Berikut adalah contoh penggunaan validasi pada saat menggunakan library pihak ketiga.
