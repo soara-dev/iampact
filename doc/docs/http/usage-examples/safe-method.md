@@ -44,7 +44,7 @@ Saat melakukan request, terdapat beberapa **lifecycle hooks** yang dapat digunak
 - `onBeforeSend` : Fungsi ini akan dijalankan sebelum request dikirim ke server. digunakan untuk menampilkan loading spinner atau menampilkan pesan loading.
 - `onSuccess` : Fungsi ini akan dijalankan ketika request berhasil. digunakan untuk melakukan aksi setelah request berhasil.
 - `onError` : Fungsi ini akan dijalankan ketika request gagal. digunakan untuk menampilkan pesan error.
-- `onComplate` : Fungsi ini akan dijalankan setelah request selesai. digunakan untuk menutup loading spinner atau melakukan aksi setelah request selesai.
+- `onComplete` : Fungsi ini akan dijalankan setelah request selesai. digunakan untuk menutup loading spinner atau melakukan aksi setelah request selesai.
 ```js
 http.request({
     url: "https://jsonplaceholder.typicode.com/posts",
@@ -57,7 +57,7 @@ http.request({
     onError: function (err) {
         // Do something
     },
-    onComplate: function () {
+    onComplete: function () {
         // Do something
     },
 })
