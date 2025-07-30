@@ -57,3 +57,10 @@ jobs:
           remote_user: ${{ secrets.PROD_REMOTE_USER }}
           remote_key: ${{ secrets.PROD_SSH_REMOTE_KEY }}
           remote_key_pass: ${{ secrets.PROD_SSH_REMOTE_KEY_PASS }}
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: dist/main.js
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v0.0.${{ github.run_number }}
