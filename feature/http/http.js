@@ -55,7 +55,6 @@ class Http {
       data: requestConfig.data,
       contentType: false,
       processData: false,
-      async: false,
       beforeSend: function (xhr) {
         requestConfig.onBeforeSend(xhr);
       },
